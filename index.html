@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mountain Goats</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Simpele zoekfunctie die een alert toont voor demo
+    function handleSearch(event) {
+      event.preventDefault();
+      const query = document.getElementById("search-input").value;
+      if (query) {
+        alert(`Je hebt gezocht naar: "${query}". Zoekfunctie werkt nog aan verdere integratie.`);
+      } else {
+        alert("Voer een zoekterm in.");
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <img src="Mountaingoats.png" alt="Mountain Goats Logo" class="logo">
+      <h1>Mountain Goats Support</h1>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="knowledgebase.html">Kennisbank</a>
+        <a href="submit-ticket.html">Ticket Indienen</a>
+        <a href="contact.html">Contact</a>
+        
+        <!-- Zoekfunctie in de navigatiebalk -->
+<form class="search-form" action="search.php" method="get">
+  <input 
+    type="text" 
+    id="search-input" 
+    name="query" 
+    placeholder="Zoek..." 
+    class="search-input">
+  <button type="submit" class="search-button">Zoeken</button>
+</form>
+
+  <!-- Main Section -->
+  <main class="main">
+    <div class="container">
+      <h2>Welkom bij Mountain Goats</h2>
+      <p>Wij zijn hier om je te helpen. Kies een optie om aan de slag te gaan:</p>
+      <div class="cta-buttons">
+        <a href="knowledgebase.html" class="button">Zoek in de Kennisbank</a>
+        <a href="submit-ticket.html" class="button">Dien een Ticket In</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Mountain Goats Support. Alle rechten voorbehouden.</p>
+    </div>
+  </footer>
+</body>
+</html>

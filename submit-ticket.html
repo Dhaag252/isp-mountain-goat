@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket Indienen - ISP</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Ticket Indienen</h1>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <form action="submit-ticket-handler.php" method="POST">
+        <label for="name">Naam:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">E-mailadres:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="issue">Beschrijving van het probleem:</label><br>
+        <textarea id="issue" name="issue" rows="5" required></textarea><br><br>
+
+        <button type="submit" class="button">Ticket Indienen</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Interactive Support Platform. Alle rechten voorbehouden.</p>
+    </div>
+  </footer>
+</body>
+</html>
