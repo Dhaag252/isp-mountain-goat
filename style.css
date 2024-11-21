@@ -145,3 +145,230 @@ button, .button, .search-button {
 button:hover, .button:hover, .search-button:hover {
   background-color: #555555; /* Donkerder zwart voor hover */
 }
+/* Algemene stijl */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #F5F5F5;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  background-color: #007BFF;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* Formulier */
+.ticket-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.ticket-form h2 {
+  margin-bottom: 20px;
+}
+
+.ticket-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.ticket-form input, .ticket-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.ticket-form .button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.ticket-form .button:hover {
+  background-color: #0056b3;
+}
+
+/* Tickets */
+.ticket-list {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-list h2 {
+  margin-bottom: 20px;
+}
+
+.ticket {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.ticket h3 {
+  margin: 0;
+}
+
+.ticket span {
+  font-weight: bold;
+  color: #007BFF;
+}
+/* Meldingstijlen */
+.message {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+/* Stijl voor de 'Terug naar Homepage' knoppen */
+.back-buttons {
+  margin-top: 20px;
+}
+
+.back-buttons .button {
+  background-color: #007BFF; /* Blauw voor een mooie uitstraling */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.back-buttons .button:hover {
+  background-color: #0056b3; /* Donkerblauw bij hover */
+}
+/* Algemene stijlen */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Header en navigatie */
+.header {
+  background-color: #007BFF;
+  color: white;
+  padding: 20px 0;
+}
+
+.header .logo-container {
+  text-align: center;
+}
+
+.logo {
+  max-width: 150px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.nav a {
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav a:hover {
+  background-color: #0056b3;
+}
+
+/* Main content styling */
+.main {
+  background-color: #ffffff;
+  padding: 20px 0;
+}
+
+.article-list {
+  width: 30%;
+  float: left;
+}
+
+.article-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.article-list li {
+  margin: 10px 0;
+}
+
+.article-list a {
+  text-decoration: none;
+  color: #007BFF;
+  font-size: 18px;
+}
+
+.article-list a:hover {
+  text-decoration: underline;
+}
+
+.article-content {
+  width: 65%;
+  float: right;
+}
+
+.article-text {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.footer {
+  background-color: #333333;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;
+  bottom: 10;
+  width: 100%;
+}

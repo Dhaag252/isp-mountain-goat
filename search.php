@@ -1,71 +1,84 @@
 <?php
-include 'db.php'; // Verbind met de database
+// Database verbinding
+$host = 'localhost';
+$dbname = 'mountaingoats_support';
+$username = 'root';
+$password = '';
 
-if (isset($_GET['query'])) {
-    $query = $_GET['query']; // Haal de zoekterm op
+try {
+    // Maak verbinding met de database
+    $conn = new mysqli($host, $username, $password, $dbname);
+    
+    // Controleer of de verbinding succesvol is
+    if ($conn->connect_error) {
+        die("Verbinding mislukt: " . $conn->connect_error);
+    }
 
-    // SQL-query om te zoeken in de titel en content van de artikelen
-    $sql = "SELECT * FROM articles WHERE title LIKE :query OR content LIKE :query";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute(['query' => "%" . $query . "%"]);
+    // Haal de zoekterm op uit de URL
+    if (isset($_GET['search'])) {
+        $searchTerm = $_GET['search'];
+        $searchTerm = $conn->real_escape_string($searchTerm); // Veilig maken van de zoekterm
 
-    $results = $stmt->fetchAll();
+        // Zoek naar artikelen die de zoekterm bevatten
+        $sql = "SELECT * FROM articles WHERE title LIKE '%$searchTerm%' OR content LIKE '%$searchTerm%' ORDER BY date_published DESC";
+        $result = $conn->query($sql);
+    } else {
+        $result = null;
+    }
+
+    // Sluit de databaseverbinding
+    $conn->close();
+} catch (Exception $e) {
+    echo "Fout: " . $e->getMessage();
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mountain Goats - Zoekresultaten</title>
+  <title>Zoekresultaten - Mountain Goats Support</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Header -->
   <header class="header">
     <div class="container">
-      <img src="Mountaingoats.png" alt="Mountain Goats Logo" class="logo">
-      <h1>Mountain Goats Support</h1>
+      <h1>Zoekresultaten voor: <?php echo htmlspecialchars($searchTerm); ?></h1>
       <nav class="nav">
         <a href="index.html">Home</a>
-        <a href="knowledgebase.html">Kennisbank</a>
-        <a href="submit-ticket.html">Ticket Indienen</a>
+        <a href="knowledge.html" class="active">Kennisbank</a>
+        <a href="submit-ticket.php">Ticket Indienen</a>
         <a href="contact.html">Contact</a>
-
-        <!-- Zoekfunctie -->
-        <form class="search-form" action="search.php" method="get">
-          <input 
-            type="text" 
-            id="search-input" 
-            name="query" 
-            placeholder="Zoek..." 
-            class="search-input">
-          <button type="submit" class="search-button">Zoeken</button>
-        </form>
       </nav>
     </div>
   </header>
 
-  <!-- Zoekresultaten -->
-  <section class="search-results">
+  <!-- Main Section -->
+  <main class="main">
     <div class="container">
-      <h2>Zoekresultaten</h2>
+      <h2>Artikelen</h2>
 
-      <?php
-        if (isset($results) && count($results) > 0) {
-          foreach ($results as $result) {
-            echo "<div class='result-item'>";
-            echo "<h3>" . htmlspecialchars($result['title']) . "</h3>";
-            echo "<p>" . nl2br(htmlspecialchars($result['content'])) . "</p>";
-            echo "</div>";
-          }
-        } else {
-          echo "<p>Geen resultaten gevonden voor de zoekterm: " . htmlspecialchars($query) . "</p>";
-        }
-      ?>
+      <?php if ($result && $result->num_rows > 0): ?>
+        <!-- Artikelen weergeven -->
+        <section class="article-list">
+          <?php while ($row = $result->fetch_assoc()): ?>
+            <div class="article">
+              <h4>
+                <!-- Link naar artikel detailpagina -->
+                <a href="submit-ticket.php?article_id=<?php echo $row['id']; ?>"><?php echo htmlspecialchars($row['title']); ?></a>
+              </h4>
+              <p><?php echo substr(htmlspecialchars($row['content']), 0, 150); ?>...</p>
+              <a href="submit-ticket.php?article_id=<?php echo $row['id']; ?>" class="button">Stel een vraag over dit artikel</a>
+            </div>
+          <?php endwhile; ?>
+        </section>
+      <?php else: ?>
+        <p>Geen artikelen gevonden die overeenkomen met "<?php echo htmlspecialchars($searchTerm); ?>".</p>
+      <?php endif; ?>
     </div>
-  </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">

@@ -1,0 +1,92 @@
+/* Stijlen voor de kennisbankpagina */
+.header {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+  }
+  
+  .header .nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  .main {
+    padding: 20px 0;
+    background-color: #F5F5F5;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .search-section {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .search-input {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .categories-section {
+    margin-bottom: 30px;
+  }
+  
+  .categories {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .category {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  .category h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .category a {
+    text-decoration: none;
+    color: #007BFF;
+  }
+  
+  .popular-articles ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .popular-articles ul li {
+    margin: 10px 0;
+  }
+  
+  .popular-articles ul li a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .popular-articles ul li a:hover {
+    text-decoration: underline;
+  }
+  
