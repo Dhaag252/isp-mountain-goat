@@ -13,6 +13,65 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Functie om een e-mail te sturen naar de klant
+function stuurEmail($klantEmail, $onderwerp, $bericht) {
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-Type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: support@mountaingoats.com" . "\r\n"; // Zet hier een geldig e-mailadres in
+
+    // Stuur de e-mail
+    mail($klantEmail, $onderwerp, $bericht, $headers);
+}
+
+// Verwerking van acties (openen, sluiten, reageren)
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['action'])) {
+        $ticket_id = $_POST['ticket_id'];
+        $action = $_POST['action'];
+
+        // Haal het e-mailadres van de klant op en het onderwerp van het ticket
+        $sql = "SELECT email, onderwerp FROM tickets WHERE id='$ticket_id'";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        $klantEmail = $row['email'];
+        $ticketOnderwerp = $row['onderwerp'];
+        $onderwerp = "";
+        $bericht = "";
+
+        if ($action == 'open') {
+            // Update ticket status naar "Open"
+            $update_sql = "UPDATE tickets SET status='Open' WHERE id='$ticket_id'";
+            $conn->query($update_sql);
+
+            // E-mail naar klant
+            $onderwerp = "Jouw ticket is geopend";
+            $bericht = "<p>Beste klant,</p><p>Je ticket met het onderwerp <strong>'$ticketOnderwerp'</strong> is opnieuw geopend. We werken aan een oplossing en nemen snel contact met je op.</p>";
+
+        } elseif ($action == 'close') {
+            // Update ticket status naar "Gesloten"
+            $update_sql = "UPDATE tickets SET status='Gesloten' WHERE id='$ticket_id'";
+            $conn->query($update_sql);
+
+            // E-mail naar klant
+            $onderwerp = "Jouw ticket is gesloten";
+            $bericht = "<p>Beste klant,</p><p>Je ticket met het onderwerp <strong>'$ticketOnderwerp'</strong> is gesloten. Als je nog verdere vragen hebt, kun je altijd een nieuw ticket indienen.</p>";
+
+        } elseif ($action == 'reply') {
+            // Voeg reactie toe aan ticket
+            $reply = $_POST['reply'];
+            $insert_sql = "INSERT INTO reacties (ticket_id, reactie) VALUES ('$ticket_id', '$reply')";
+            $conn->query($insert_sql);
+
+            // E-mail naar klant
+            $onderwerp = "Reactie op je ticket";
+            $bericht = "<p>Beste klant,</p><p>Je ticket met het onderwerp <strong>'$ticketOnderwerp'</strong> heeft een nieuwe reactie. Ons team heeft het volgende antwoord gegeven:</p><p><em>$reply</em></p>";
+        }
+
+        // Stuur de e-mail naar de klant
+        stuurEmail($klantEmail, $onderwerp, $bericht);
+    }
+}
+
 // Query om alle tickets op te halen
 $sql = "SELECT * FROM tickets ORDER BY datum_ingediend DESC";
 $result = $conn->query($sql);
@@ -23,7 +82,7 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medewerker Dashboard</title>
+    <title>Medewerker Dashboard - Mountain Goats Support</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -35,6 +94,7 @@ $result = $conn->query($sql);
                 <a href="index.html">Home</a>
                 <a href="submit-ticket.php">Ticket Indienen</a>
                 <a href="contact.html">Contact</a>
+                <a href="logout.php" class="button nav-button">Logout</a>
             </nav>
         </div>
     </header>
@@ -52,7 +112,24 @@ $result = $conn->query($sql);
                     echo "<p><strong>Email:</strong> " . $row['email'] . "</p>";
                     echo "<p><strong>Beschrijving:</strong> " . $row['beschrijving'] . "</p>";
                     echo "<p><strong>Status:</strong> " . $row['status'] . "</p>";
-                    echo "<button class='button'>Behandel Ticket</button>"; // Behandelknop
+
+                    // Knoppen voor acties
+                    echo "<form method='POST'>";
+                    echo "<input type='hidden' name='ticket_id' value='" . $row['id'] . "'>";
+                    echo "<button type='submit' name='action' value='open' class='button'>Openen</button>";
+                    echo "<button type='submit' name='action' value='close' class='button'>Sluiten</button>";
+                    echo "<button type='button' class='button' onclick='showReplyForm(" . $row['id'] . ")'>Reageer</button>";
+                    echo "</form>";
+
+                    // Reactieformulier (verstopt totdat de 'Reageer' knop wordt ingedrukt)
+                    echo "<div id='reply-form-" . $row['id'] . "' class='reply-form' style='display:none;'>";
+                    echo "<form method='POST'>";
+                    echo "<input type='hidden' name='ticket_id' value='" . $row['id'] . "'>";
+                    echo "<textarea name='reply' required placeholder='Voer hier je reactie in'></textarea>";
+                    echo "<button type='submit' name='action' value='reply' class='button'>Reageer</button>";
+                    echo "</form>";
+                    echo "</div>";
+                    
                     echo "</div>";
                 }
             } else {
@@ -67,6 +144,17 @@ $result = $conn->query($sql);
             <p>&copy; 2024 Mountain Goats Support. Alle rechten voorbehouden.</p>
         </div>
     </footer>
+
+    <script>
+        function showReplyForm(ticketId) {
+            var replyForm = document.getElementById('reply-form-' + ticketId);
+            if (replyForm.style.display === 'none') {
+                replyForm.style.display = 'block';
+            } else {
+                replyForm.style.display = 'none';
+            }
+        }
+    </script>
 
 </body>
 </html>

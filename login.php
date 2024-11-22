@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Login geslaagd, sessie starten en doorsturen naar dashboard
                 $_SESSION['medewerker_id'] = $row['id'];
                 $_SESSION['gebruikersnaam'] = $row['gebruikersnaam'];
-                header('Location: medewerker-dashboard.html');
+                header('Location: medewerker-dashboard.php');
                 exit();
             } else {
                 // Fout wachtwoord

@@ -1,14 +1,3 @@
-<?php
-session_start();
-
-// Controleer of de medewerker is ingelogd
-if (!isset($_SESSION['ingelogd']) || $_SESSION['ingelogd'] !== true) {
-    // Als de medewerker niet is ingelogd, redirect naar de loginpagina
-    header("Location: medewerker-login.html");
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -41,9 +30,45 @@ if (!isset($_SESSION['ingelogd']) || $_SESSION['ingelogd'] !== true) {
   <!-- Main Section -->
   <main class="main">
     <div class="container">
-      <h2>Welkom, <?php echo $_SESSION['gebruikersnaam']; ?>!</h2>
+      <h2>Welkom, Medewerker</h2>
       <p>Hier kun je de openstaande tickets bekijken en beheren.</p>
-      <!-- Voeg hier de tickets en dashboard-inhoud toe -->
+
+      <!-- Ticket weergave -->
+      <h3>Openstaande Tickets</h3>
+
+      <!-- Voorbeeld van tickets -->
+      <div class="ticket-list">
+        <!-- Ticket 1 -->
+        <div class="ticket-item">
+          <h4>Probleem met inloggen</h4>
+          <p><strong>Naam:</strong> Jan de Vries</p>
+          <p><strong>Email:</strong> jan@example.com</p>
+          <p><strong>Beschrijving:</strong> Ik kan niet inloggen op mijn account. Het wachtwoord lijkt niet te werken, ook al heb ik het meerdere keren gecontroleerd.</p>
+          <p><strong>Ingediend op:</strong> 2024-11-22 10:00</p>
+          <hr>
+        </div>
+        <!-- Ticket 2 -->
+        <div class="ticket-item">
+          <h4>Foutmelding bij het openen van een bestand</h4>
+          <p><strong>Naam:</strong> Maria Jansen</p>
+          <p><strong>Email:</strong> maria@example.com</p>
+          <p><strong>Beschrijving:</strong> Elke keer wanneer ik probeer een bestand te openen, krijg ik een foutmelding. De foutmelding is: 'Bestand kan niet worden geopend'.</p>
+          <p><strong>Ingediend op:</strong> 2024-11-21 14:30</p>
+          <hr>
+        </div>
+        <!-- Ticket 3 -->
+        <div class="ticket-item">
+          <h4>Verbindingsproblemen met het netwerk</h4>
+          <p><strong>Naam:</strong> Ahmed Ali</p>
+          <p><strong>Email:</strong> ahmed@example.com</p>
+          <p><strong>Beschrijving:</strong> Ik heb problemen met de internetverbinding. Het netwerk valt steeds weg, waardoor ik mijn werk niet kan voortzetten.</p>
+          <p><strong>Ingediend op:</strong> 2024-11-20 08:45</p>
+          <hr>
+        </div>
+      </div>
+
+      <!-- Als er geen tickets zijn -->
+      <!-- <p>Er zijn momenteel geen openstaande tickets.</p> -->
     </div>
   </main>
 
