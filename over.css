@@ -1,0 +1,128 @@
+/* Algemene Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #F5F5F5;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* Header Styling */
+  .header {
+    background-color: #007BFF;
+    color: white;
+    padding: 20px 0;
+  }
+  
+  .header .nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  .header .nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .logo-container {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: url('images/hero-background.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .hero h2 {
+    font-size: 36px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  /* About Us Section */
+  .about-us {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-us .about-content {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .about-us .about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Mission Section */
+  .mission {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #F5F5F5;
+    border-radius: 8px;
+  }
+  
+  /* Contact Details */
+  .contact-details {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .contact-item {
+    flex: 1 1 300px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-item strong {
+    display: block;
+  }
+  
+  /* Back Button */
+  .back-button {
+    text-align: center;
+    margin: 30px 0;
+  }
+  
+  .back-button .button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .back-button .button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
+  

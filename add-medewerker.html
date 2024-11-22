@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medewerker Toevoegen - Mountain Goats Support</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo-container">
+        <img src="logo.png" alt="Mountain Goats Logo" class="logo">
+      </div>
+      <h1>Medewerker Toevoegen</h1>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="knowledgebase.html">Kennisbank</a>
+        <a href="submit-ticket.html">Ticket Indienen</a>
+        <a href="contact.html">Contact</a>
+        <a href="over.html">Over</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main class="main">
+    <div class="container">
+      <h2>Nieuwe Medewerker Toevoegen</h2>
+      <form action="add-medewerker.php" method="POST">
+        <label for="username">Gebruikersnaam</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Wachtwoord</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="role">Rol</label>
+        <select id="role" name="role">
+          <option value="medewerker">Medewerker</option>
+          <option value="admin">Beheerder</option>
+        </select>
+
+        <button type="submit" class="button">Voeg Medewerker Toe</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Mountain Goats Support. Alle rechten voorbehouden.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

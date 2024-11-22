@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Mountain Goats Support</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Stijl voor de FAQ pagina */
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px;
+      font-family: Arial, sans-serif;
+    }
+
+    .faq-container h1 {
+      text-align: center;
+      color: #333;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .faq-item {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      margin: 10px 0;
+      padding: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .faq-item:hover {
+      background-color: #f1f1f1;
+    }
+
+    .faq-question {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #007BFF;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 10px 0;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-item.open .faq-question {
+      color: #0056b3;
+    }
+
+    /* Button Styling */
+    .back-button {
+      display: inline-block;
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 30px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo-container">
+        <img src="logo.png" alt="Mountain Goats Logo" class="logo">
+      </div>
+      <h1>Mountain Goats Support</h1>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="knowledgebase.html">Kennisbank</a>
+        <a href="submit-ticket.html">Ticket Indienen</a>
+        <a href="contact.html">Contact</a>
+        <a href="over.html">Over</a>
+        <a href="faq.html" class="button nav-button">FAQ</a>
+        <a href="medewerker-login.html" class="button nav-button">Medewerker Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main class="main">
+    <div class="container faq-container">
+      <h1>Veelgestelde Vragen (FAQ)</h1>
+
+      <!-- FAQ Item 1 -->
+      <div class="faq-item">
+        <div class="faq-question">Hoe dien ik een ticket in?</div>
+        <div class="faq-answer">
+          <p>Om een ticket in te dienen, ga naar de pagina "Ticket Indienen", vul het formulier in met je gegevens, en klik op "Verstuur Ticket". Ons team zal zo snel mogelijk contact met je opnemen om je te helpen.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="faq-item">
+        <div class="faq-question">Hoe kan ik de status van mijn ticket volgen?</div>
+        <div class="faq-answer">
+          <p>De status van je ticket kan worden bekeken via het "Mijn Tickets" gedeelte. Hier kun je zien of je ticket is opgelost, in behandeling is, of gesloten is.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="faq-item">
+        <div class="faq-question">Wat moet ik doen als ik geen antwoord krijg op mijn ticket?</div>
+        <div class="faq-answer">
+          <p>Als je geen antwoord hebt ontvangen binnen de verwachte tijd, neem dan gerust opnieuw contact op met ons team via het ticketportaal, zodat we je verder kunnen helpen.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="faq-item">
+        <div class="faq-question">Kan ik mijn ticket annuleren?</div>
+        <div class="faq-answer">
+          <p>Ja, je kunt je ticket annuleren door contact op te nemen met ons supportteam via het ticketportaal. We zullen het ticket sluiten als het probleem is opgelost of als het niet meer nodig is.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 5 -->
+      <div class="faq-item">
+        <div class="faq-question">Zijn er kosten verbonden aan het indienen van een ticket?</div>
+        <div class="faq-answer">
+          <p>Onze basis ondersteuning is gratis voor alle klanten. Eventuele extra kosten voor premium ondersteuning zullen vooraf duidelijk worden aangegeven.</p>
+        </div>
+      </div>
+
+      <!-- Back Button -->
+      <a href="index.html" class="back-button">Terug naar Home</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Mountain Goats Support. Alle rechten voorbehouden.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Functie om FAQ-items in en uit te klappen
+    document.querySelectorAll('.faq-item').forEach(function(item) {
+      item.addEventListener('click', function() {
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

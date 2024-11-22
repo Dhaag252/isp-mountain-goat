@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medewerker Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="logo.png" alt="Mountain Goats Logo" class="logo">
+            </div>
+            <h1>Medewerker Login</h1>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <form action="medewerker-login.php" method="POST">
+                <label for="gebruikersnaam">Gebruikersnaam</label>
+                <input type="text" id="gebruikersnaam" name="gebruikersnaam" required>
+
+                <label for="wachtwoord">Wachtwoord</label>
+                <input type="password" id="wachtwoord" name="wachtwoord" required>
+
+                <button type="submit" class="button">Inloggen</button>
+
+                <?php
+                    // Foutmelding weergeven als het inloggen mislukt
+                    if (isset($foutmelding)) {
+                        echo '<p class="error">' . $foutmelding . '</p>';
+                    }
+                ?>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Mountain Goats Support. Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
