@@ -291,7 +291,7 @@ body {
 /* Header en navigatie */
 .header {
   background-color: #007BFF;
-  color: blue;
+  color: rgb(9, 9, 9);
   padding: 20px 0;
 }
 
