@@ -9,6 +9,6 @@ session_unset();
 session_destroy();
 
 // Redirect naar de loginpagina
-header("Location: medewerker-login.html");
+header("Location: medewerker-login.php");
 exit();
 ?>

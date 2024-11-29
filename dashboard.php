@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 
 // Controleer of de medewerker is ingelogd
 if (!isset($_SESSION['medewerker_logged_in'])) {
-    header("Location: medewerker-login.html"); // Als niet ingelogd, doorverwijzen naar de loginpagina
+    header("Location: medewerker-login.php"); // Als niet ingelogd, doorverwijzen naar de loginpagina
     exit();
 }
 
