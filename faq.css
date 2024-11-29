@@ -1,42 +1,139 @@
-/* FAQ Styling */
-.faq {
-    margin-top: 20px;
-  }
-  
-  .faq-item {
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  
-  .faq-question {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 15px;
-    font-size: 1.1em;
-    border: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-  }
-  
-  .faq-question:hover {
-    background-color: #0056b3;
-  }
-  
-  .faq-answer {
-    display: none;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ddd;
-  }
-  
-  .faq-answer a {
-    color: #007BFF;
-  }
-  
-  .faq-answer a:hover {
-    text-decoration: underline;
-  }
-  
+/* Algemene styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #F5F5F5; /* Lichtgrijs als achtergrondkleur */
+  color: #333333; /* Donkergrijs voor tekst */
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  background: #007BFF; /* Blauw als hoofdkleur */
+  color: white;
+  padding: 1em 0;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.nav {
+  margin-top: 0.5em;
+  text-align: center;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1em;
+  font-size: 16px;
+  padding: 0.5em;
+}
+
+.nav a:hover {
+  background-color: #0056b3;
+  border-radius: 5px;
+}
+
+.nav .active {
+  background-color: #0056b3;
+  border-radius: 5px;
+}
+
+/* Main Section */
+.main {
+  padding: 2em 0;
+  text-align: center;
+}
+
+button.accordion {
+  background-color: #eee;
+  color: #333;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button.accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 10px;
+  background-color: #f1f1f1;
+  display: none;
+  overflow: hidden;
+}
+
+/* Footer stijl */
+footer {
+  background-color: #333333; /* Donkergrijs als steunkleur */
+  color: white;
+  padding: 1em 0;
+  text-align: center;
+}
+
+/* Logo Styling */
+.logo {
+  width: 150px; /* Pas de grootte aan naar wens */
+  display: block;
+  margin: 0 auto 10px; /* Centraal plaatsen boven de titel */
+}
+
+/* Algemene stijl voor alle knoppen */
+button {
+  background-color: #333333; /* Zwarte achtergrond */
+  color: white; /* Witte tekstkleur */
+  padding: 0.5em 1em; /* Wat ruimte rond de tekst */
+  border: none; /* Geen rand */
+  border-radius: 5px; /* Ronde hoeken */
+  font-size: 1em; /* Lettergrootte */
+  cursor: pointer; /* Wijzig de cursor naar een pointer (handje) */
+  transition: background-color 0.3s ease; /* Soepele overgang voor hover-effect */
+}
+
+/* Hover-effect voor knoppen */
+button:hover {
+  background-color: #555555; /* Donkerder zwart voor hover */
+}
+
+/* Zoekfunctie in de navigatiebalk */
+.search-form {
+  display: inline-flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 0.5em;
+  margin-right: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.search-button {
+  background: #007BFF; /* Hoofdkleur (Blauw) */
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-button:hover {
+  background: #0056b3; /* Donkerder blauw voor hover-effect */
+}

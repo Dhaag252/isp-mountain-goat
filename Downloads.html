@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Downloads - Mountain Goats IT Support</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+    
+    /* Algemene styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #F5F5F5;
+      color: #333333;
+    }
+    
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      background: #007BFF;
+      color: white;
+      padding: 1em 0;
+      text-align: center;
+    }
+
+    .nav {
+      margin-top: 0.5em;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1em;
+    }
+
+    .nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Section */
+    .main {
+      padding: 2em 0;
+      text-align: center;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #007BFF;
+    }
+
+    .downloads {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .download-item {
+      background: #F5F5F5;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      max-width: 300px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .download-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .download-item img {
+      max-width: 100px;
+      margin-bottom: 10px;
+    }
+
+    .download-item h3 {
+      color: #007BFF;
+      margin-bottom: 10px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: #0056b3;
+    }
+
+    /* Footer */
+    .footer {
+      background: #333333;
+      color: white;
+      text-align: center;
+      padding: 1em 0;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <!-- Groot logo -->
+    <div class="logo-container">
+      <img src="logo.png" alt="Mountain Goats Logo" class="logo">
+    </div>
+    <h1>Downloads</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="Manuals.html">Manuals</a>
+      <a href="faq.html">FAQ</a>
+      <a href="Support.html">Support</a>
+      <a href="Downloads.html">Downloads</a>
+      
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main class="main">
+    <div class="container">
+      <h2>Download de benodigde software</h2>
+      <p>Hier kun je de installatiebestanden downloaden van de software die je nodig hebt.</p>
+
+      <div class="downloads">
+       
+        <div class="download-item">
+          <img src="teamviewer-icon.png" alt="TeamViewer">
+          <h3>TeamViewer</h3>
+          <p>Met TeamViewer kun je op afstand toegang krijgen tot je apparaten en ondersteuning ontvangen.</p>
+          <a href="Downloads/TeamViewerQS_x64.exe" class="button" download>Download TeamViewer</a>
+        </div>
+
+       
+        <div class="download-item">
+          <img src="discord-icon.png" alt="Discord">
+          <h3>Discord</h3>
+          <p>Gebruik Discord om te communiceren met je team of ons supportteam.</p>
+          <a href="https://drive.proton.me/urls/8XYNQQATF0#Bbt4qrxpJdEl" class="button" download>Download Discord</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Mountain Goats IT Support. Alle rechten voorbehouden.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
